@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import "./App.css";
 
 import App from "./components/App";
 import reducers from "./reducers";
