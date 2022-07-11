@@ -2,7 +2,7 @@ import React from "react";
 
 class UserHeader extends React.Component {
   render() {
-    return <div>User Header</div>;
+    return <div>User: {this.props.userId}</div>;
   }
 }
 
