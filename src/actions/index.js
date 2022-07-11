@@ -5,9 +5,13 @@ export const fetchPostsAndUsers = () => async (dispatch, getState) => {
   // fetch list of posts, when that response is ready (after "await")...
   await dispatch(fetchPosts());
 
-  // ...get each unique user using 'memoize'
-  const userIds = _.uniq(_.map(getState().posts, "userId"));
-  userIds.forEach((id) => dispatch(fetchUser(id)));
+  // ...get each unique user using 'memoize' & the _.chain() function
+
+  _.chain(getState().posts)
+    .map("userId")
+    .uniq()
+    .forEach((id) => dispatch(fetchUser(id)))
+    .value();
 };
 
 export const fetchPosts = () => async (dispatch) => {
